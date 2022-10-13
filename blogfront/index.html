@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tailwind Starter Template - Ghostwind CSS : Tailwind Toolbox</title>
+    <meta name="author" content="name">
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> <!--Replace with your tailwind.css once created-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
+		
+</head>
+<body class="bg-gray-200 font-sans leading-normal tracking-normal">
+	<!--Nav-->
+	<nav class="bg-gray-900 p-4 mt-0 w-full">
+        <div class="container mx-auto flex items-center">
+		    <div class="flex text-white font-extrabold">
+				<a class="flex text-white text-base no-underline hover:text-white hover:no-underline" href="index.php"> 
+					 <span class="hidden w-0 md:w-auto md:block pl-1">OMDA BLOG</span>
+				</a>
+            </div>
+			<div class="flex pl-4 text-sm">
+				<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+				  <li class="mr-2">
+					<a class="inline-block py-2 px-2 text-white no-underline" href="index.php">HOME</a>
+				  </li>
+				</ul>
+			</div>
+        </div>
+	</nav>
+	
+	<!--slide in nav-->
+
+	<!--Header-->
+	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="background-image:url('cover.jpg'); height: 60vh; max-height:460px;">
+			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
+				<!--Title-->
+					<p class="text-black font-extrabold text-3xl md:text-5xl">
+						OMDA BLOG
+					</p>
+					<p class="text-xl md:text-2xl text-gray-500">Welcome to my Blog the best blog in the country</p>
+			</div>
+		</div>
+		
+		<!--Container-->
+		<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
+			
+			<div class="mx-0 sm:mx-6">
+				
+				<!--Nav-->
+				<nav class="mt-0 w-full">
+					<div class="container mx-auto flex items-center">
+						
+						<div class="flex w-1/2 pl-4 text-sm">
+							<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+								<li class="mr-2">
+								<a class="inline-block py-2 px-2 text-white no-underline hover:underline" href="index.php">POSTS</a>
+								</li>
+						
+							</ul>
+						</div>
+
+					</div>
+				</nav>
+
+				<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
+					
+				<!--Lead Card-->
+				<div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
+					<a href="post.html" class="flex flex-wrap no-underline hover:no-underline">
+						<div class="w-full md:w-2/3 rounded-t">	
+							<img src="uploads/IMG_E3054.JPG" class="h-full w-full shadow">
+						</div>
+						<div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
+							<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+								<p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">GETTING STARTED</p>
+								<div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome to our blog </div>
+								<p class="text-gray-800 font-serif text-base px-6 mb-5">
+									This blog to review posts
+								</p>
+							</div>
+
+							
+						</div>
+
+					</a>
+				</div>
+				<!--/Lead Card-->
+				<div class="admin-panel__content">
+
+					<div class="row">
+						
+						<div class="col-md-8">
+							<form class="form-horizontal" action="index.php" method="post" enctype="multipart/form-data">
+		
+								<div class="form-group">
+									<label for="title" class="col-sm-3 control-label">Title</label>
+									<div class="col-sm-9">
+										<input type="text" name="title" class="form-control" id="title" placeholder="title">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="content" class="col-sm-3 control-label">Content</label>
+									<div class="col-sm-9">
+									  <textarea rows="6" name="content" class="form-control" id="product-desc" placeholder="content"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="image" class="col-sm-3 control-label">Image</label>
+									<div class="col-sm-9">
+										<input type="file" name="image" class="form-control" id="image">
+									</div>
+								</div>
+		
+								<div class="form-group">
+									<label for="name" class="col-sm-3 control-label">Name</label>
+									<div class="col-sm-9">
+										<input type="text" name="name" class="form-control" id="name" placeholder="name">
+									</div>
+								</div>
+		
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-9">
+										<button type="submit" class="btn btn-success"><i class="fa fa-user"></i> Add POST</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+		
+				</div>
+				 to review posts <a href="index.php">click here </a>
+
+				<!--Posts Container-->
+				<?php foreach($posts as $post) { 
+					$id=$post['id'];
+					$title=$post['title'];
+					$content=$post['content'];
+					$name=$post['name'];
+					$image=$post['image'];
+					?>
+				<div class="flex flex-wrap justify-between pt-12 -mx-6">
+                    	<!--1/3 col -->
+					<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+							<a href="post.php?id=<?php echo $id ?>" class="flex flex-wrap no-underline hover:no-underline">
+								<img src="uploads/<?php echo $image ?>" height="250" width="400" class="img-responsive" alt="POST Image">
+								<div class="w-full font-bold text-xl text-gray-900 px-6"><?php echo $title ?></div>
+								<p class="text-gray-800 font-serif text-base px-6 mb-5">
+									<?php echo $content ?> 
+								</p>
+								<div class="w-full font-sans text-xl text-gray-900 px-6"> ADDED BY : <?php echo $name ?></div>
+							</a>
+						</div>
+					</div>
+				
+				</div>
+				<?php } ?>
+					
+				<!--/ Post Content-->
+						
+			</div>
+			
+	
+		</div>
+	
+
+	</div>
+
+
+	<footer class="bg-gray-900">	
+		<div class="container max-w-6xl mx-auto flex items-center px-2 py-8">
+
+			<div class="w-full mx-auto flex flex-wrap items-center">
+				<div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+					<a class="text-gray-900 no-underline hover:text-gray-900 hover:no-underline" href="#">
+						 <span class="text-base text-gray-200">MOSTAFA BLOG</span>
+					</a>
+				</div>
+				<div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
+					<ul class="list-reset flex justify-center flex-1 md:flex-none items-center">
+					</ul>
+				</div>
+			</div>
+        
+
+		
+		</div>
+	</footer>
+
+	<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
+	<script src="https://unpkg.com/tippy.js@4"></script>
+	<script>
+		//Init tooltips
+		tippy('.avatar')
+	</script>
+</body>
+</html>
